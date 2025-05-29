@@ -1,0 +1,197 @@
+:root {
+    --background: #0c0c1c;
+    --main: #ef9f9f;
+    --sub-alt: #1f1e33;
+    --sub: #646669;
+    --text: #d1d0c5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    caret-color: var(--main);
+}
+
+body {
+    background-color: var(--background);
+}
+
+
+#main {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: fit-content;
+    padding: 0px;
+    flex-direction: column;
+}
+
+
+#info {
+    flex-grow: 1;
+    color: var(--text);
+
+}
+
+#scheduleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    min-height: 100vh;
+    width: fit-content;
+    padding-inline: 1em;
+    margin: 1em 2em;
+    border: 0px solid var(--sub-alt);
+}
+
+.table {
+    font-size: x-large;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    .entry {
+        display: flex;
+        flex-direction: column;
+        margin-inline: 0.3em;
+        margin-bottom: 0.6em;
+        border: 2px solid var(--sub-alt);
+        width: 7em;
+        background-color: var(--sub-alt);
+        border-radius: .5rem;
+    }
+
+    p {
+        display: flex;
+        flex-direction: column;
+        padding-inline: 1em;
+        padding-top: 0.4em;
+        padding-bottom: 0.4em;
+        color: var(--text);
+    }
+}
+
+#settings {
+    border-top: 2px solid var(--purple);
+    background-color: var(--background);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    color: var(--pearl);
+
+    h1 {
+        margin: 1em;
+        margin-inline: auto;
+    }
+
+    #desired_course_list {
+        display: flex;
+        flex-direction: column;
+        margin: 1em;
+        margin-inline: 2em;
+    }
+
+    .desired_course {
+        display: flex;
+    }
+
+    .desired_course_id {
+        right: auto;
+
+    }
+
+    .desired_course_requirements {
+        margin-left: auto;
+    }
+
+    .desired_course_offered_time {
+        margin-left: auto;
+    }
+}
+
+#management_container {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 2, 0.2);
+    backdrop-filter: blur(3px);
+    /* background-image: linear-gradient(rgba(10, 10, 10, 1) 10%, rgba(0, 0, 0, 0)); */
+    top: 0%;
+    position: fixed;
+    display: flex;
+    display: none;
+
+}
+
+.parentContainer {
+    padding: 4em;
+    background-color: var(--background);
+    width: fit-content;
+    height: fit-content;
+    min-width: 25em;
+    min-height: 25em;
+    margin: auto;
+    border-radius: 0.5em;
+    /* border: 1px solid var(--main); */
+    box-shadow: 3px 3px 40px black;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        margin-inline: auto;
+    }
+}
+
+.add_course_section {
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-areas:
+        "title buttons"
+        "text  buttons";
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    margin-inline: auto;
+    margin-top: 1em;
+    font-size: 1.2em;
+
+    p {
+        color: var(--sub);
+        padding-right: 1em;
+    }
+}
+
+.courseInput {
+    color: var(--text);
+    background-color: var(--sub-alt);
+    padding: 0.7em;
+    border-radius: 0.5em;
+    font-size: 0.8em;
+    border: 0;
+}
+
+#finished_adding_button {
+    background-color: var(--sub-alt);
+    color: var(--text);
+    border-radius: .7em;
+    border: 0;
+    font-size: 1em;
+    margin-top: 2em;
+    margin-inline: auto;
+    font-size: 1.2em;
+    padding: 1em;
+    padding-inline: 2em;
+
+}
+
+#finished_adding_button:hover {
+    background-color: var(--main);
+}

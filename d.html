@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="s.css">
+    <title>Hell</title>
+</head>
+
+<body>
+    <div id="main">
+        <div id="info">
+            <div id="scheduleContainer">
+                <!-- <div class="table">
+                    <div class="entry">
+                        <div class="inputbox">
+                            <input>
+                        </div>
+                        <p>Math145</p>
+                        <p>Math137</p>
+                        <p>Cs135</p>
+                        <p>Commst223</p>
+                        <p>Phys121</p>
+                        <p>c6</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div id="settings">
+        <h1>asdfasd</h1>
+        <div id="desired_course_list">
+            <button id="add_course">add course</button>
+            <!-- <div class="desired_course">
+                <div class="course_id">
+                    <p>Class123</p>
+                </div>
+                <div class="course_requirements">
+                    <button>Course Requirements</button>
+                </div>
+                <div class="offered_time">
+                    <p>offered</p>
+                    <div class="multiselectBox">None</div>
+
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div id="management_container">
+        <div id="course_adder" class="parentContainer">
+            <h1>Add course</h1>
+            <div class="add_course_section">
+                <span>Course code</span>
+                <input class="courseInput" id="courseid">
+                <p> The name that they will go by. Make sure they are unique.</p>
+            </div>
+            <div class="add_course_section">
+                <span>Offered times</span>
+                <input class="courseInput" id="offeredtimes">
+                <p>Input n for nth semester, delimited with ','.<br>
+                    Leave empty if offered every semester</p>
+            </div>
+            <div class="add_course_section">
+                <span>Prerequisites</span>
+                <input class="courseInput" id="prerequisites">
+            </div>
+            <div class="add_course_section">
+                <span>Corequisites</span>
+                <input class="courseInput" id="corequisites">
+            </div>
+            <button id="finished_adding_button"> Done</button>
+        </div>
+    </div>
+    <script src="hooks.js"></script>
+</body>
+
+</html>

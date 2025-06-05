@@ -4,6 +4,7 @@
     --sub-alt: #1f1e33;
     --sub: #646669;
     --text: #d1d0c5;
+    --font: "Inconsolata"
 }
 
 * {
@@ -11,29 +12,31 @@
     padding: 0;
     outline: none;
     caret-color: var(--main);
+    font-family: var(--font);
 }
 
 body {
     background-color: var(--background);
 }
 
+button {
+    background-color: var(--sub-alt);
+    color: var(--text);
+    border-radius: .7em;
+    border: 0;
+    font-size: 1em;
+}
 
 #main {
-    background-color: var(--background);
     display: flex;
     flex-direction: row;
     width: 100vw;
     height: fit-content;
     padding: 0px;
     flex-direction: column;
-}
-
-
-#info {
-    flex-grow: 1;
     color: var(--text);
-
 }
+
 
 #scheduleContainer {
     display: flex;
@@ -47,32 +50,72 @@ body {
     border: 0px solid var(--sub-alt);
 }
 
-.table {
+#scheduleTable {
     font-size: x-large;
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;
+}
 
-    .entry {
-        display: flex;
-        flex-direction: column;
-        margin-inline: 0.3em;
-        margin-bottom: 0.6em;
-        border: 2px solid var(--sub-alt);
-        width: 7em;
-        background-color: var(--sub-alt);
-        border-radius: .5rem;
-    }
+.container {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#semester_adder {
+    padding: 0;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 4em;
+    height: 4em;
+    margin-inline: auto;
+
+}
+
+#semester_adder:hover {
+    color: var(--main);
+    background: var(--background);
+    border-color: var(--main);
+}
+
+.table_entry {
+    display: flex;
+    flex-direction: column;
+    margin-inline: 0.3em;
+    margin-bottom: 0.6em;
+    border: 2px solid var(--sub-alt);
+    width: 7em;
+    padding: 0.2em;
+    padding-inline: 0;
+    background-color: var(--sub-alt);
+    border-radius: .5rem;
 
     p {
-        display: flex;
-        flex-direction: column;
         padding-inline: 1em;
         padding-top: 0.4em;
         padding-bottom: 0.4em;
         color: var(--text);
     }
+
+    input {
+        background: transparent;
+        padding-inline: 1em;
+        padding-top: 0.4em;
+        padding-bottom: 0.4em;
+        border: 0;
+        color: var(--text);
+        font-size: x-large;
+    }
 }
+
 
 #settings {
     border-top: 2px solid var(--purple);
@@ -89,29 +132,30 @@ body {
         margin-inline: auto;
     }
 
-    #desired_course_list {
-        display: flex;
-        flex-direction: column;
-        margin: 1em;
-        margin-inline: 2em;
-    }
+}
 
-    .desired_course {
-        display: flex;
-    }
+#desired_course_list {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    margin-inline: 2em;
+}
 
-    .desired_course_id {
-        right: auto;
+.desired_course {
+    display: flex;
+}
 
-    }
+.desired_course_id {
+    right: auto;
 
-    .desired_course_requirements {
-        margin-left: auto;
-    }
+}
 
-    .desired_course_offered_time {
-        margin-left: auto;
-    }
+.desired_course_requirements {
+    margin-left: auto;
+}
+
+.desired_course_offered_time {
+    margin-left: auto;
 }
 
 #management_container {

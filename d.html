@@ -3,34 +3,39 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="s.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Hell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="main">
-        <div id="info">
-            <div id="scheduleContainer">
-                <!-- <div class="table">
-                    <div class="entry">
-                        <div class="inputbox">
-                            <input>
-                        </div>
-                        <p>Math145</p>
-                        <p>Math137</p>
-                        <p>Cs135</p>
-                        <p>Commst223</p>
-                        <p>Phys121</p>
-                        <p>c6</p>
+        <div id="scheduleContainer">
+            <div id="scheduleTable">
+                <div class="table_entry">
+                    <input>
+                    <p>Math137</p>
+                    <p>Cs135</p>
+                    <p>Commst223</p>
+                    <p>Phys121</p>
+                    <p>c6</p>
+                </div>
+                <div class="table_entry" id="sem_adder_container">
+                    <div>
+                        <label for="c/s">courses</label>
+                        <input id="c/s">
+                        <button id="semester_adder">Add semester</button>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
     <div id="settings">
         <h1>asdfasd</h1>
+        <button id="add_course">add course</button>
         <div id="desired_course_list">
-            <button id="add_course">add course</button>
             <!-- <div class="desired_course">
                 <div class="course_id">
                     <p>Class123</p>

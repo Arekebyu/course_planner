@@ -1,18 +1,28 @@
 {
   "name": "course_planner",
-  "version": "1.0.0",
-  "description": "Make sure you have python installed.\\\r Then ```pip install ortools```.\\\r Download the main.py into your local enviroment then open it up with your favourite text editor\\\r \\\r Input the courses you **have** taken in *taken_courses*\\\r For the courses you **want** to take, put them in *desired_courses*, there are up to three parameters you can input.\\\r - **(Mandatory)** Terms offered: when the course is offered, how you format it does not matter but make sure it remains consistent with the years in sequence.\r - Prerequisites: Courses you need to take before being allowed taking the current course, put only the course code in.\r - Corequisites: Functions same as prerequisites except can be taken in the same semester as\\\r For your sequence, you need to manually input the terms yourself\\",
-  "main": "hooks.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.27.1"
+    "@eslint/js": "^9.25.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "vite": "^6.3.5"
   }
 }

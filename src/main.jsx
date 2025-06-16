@@ -40,6 +40,10 @@ function App() {
     const [semesters, dispatchSemesters] = React.useReducer(scheduleReducer, []);
     const [course, dispatchCourses] = React.useReducer(courseReducer, []);
 
+    React.useEffect(() => {
+        console.log(semesters)
+    }, [semesters])
+
     return <>
         <Schedule semesters={semesters} dispatchSemesters={dispatchSemesters} />
         <Courses courses={course} dispatchCourses={dispatchCourses} />

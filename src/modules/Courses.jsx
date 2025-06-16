@@ -75,7 +75,7 @@ function Course({ course, changeCourse, removeCourse }) {
             id: courseName,
             prereqs: prereqs.split(",").map(p => p.trim()),
             coreq: coreq.split(",").map(c => c.trim()),
-            available_semesters: new Set(availableSemesters.split(",").map(s => parseInt(s.trim())))
+            available_semesters: new Set(availableSemesters === "" ? [] : availableSemesters.split(",").map(s => parseInt(s.trim())))
         });
     };
     React.useEffect(handleUpdate, [courseName, prereqs, coreq, availableSemesters]);

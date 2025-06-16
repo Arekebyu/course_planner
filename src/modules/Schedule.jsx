@@ -36,14 +36,8 @@ export default function Schedule({ semesters, dispatchSemesters }) {
         semester.index = index;
     });
 
-    React.useEffect(() => {
-        // const scheduleDiv = document.querySelector('.schedule');
-        // if (scheduleDiv) {
-        //     while (scheduleDiv.firstChild) {
-        //         scheduleDiv.removeChild(scheduleDiv.firstChild);
-        //     }
-        // }
-    }, [semesters]);
+    // React.useEffect(() => {
+    // }, [semesters]);
     return (
         <>
             <div className="schedule">
@@ -78,6 +72,7 @@ function Semester({ semester, changeSemester, removeSemester }) {
             };
             changeSemester(semester.index, updatedSemester);
         }
+        console.log("Semester updated:", semester);
     }, [semester.courseCount]);
 
     return (

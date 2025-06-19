@@ -44,7 +44,6 @@ function generate_schedule(semesters, desired_courses, taken) {
             return generate_schedule(new_semesters, new_desired_courses, new_taken);
         }
     }
-    console.log("No valid schedule found for the remaining courses.");
     return null;
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import "./schedule.css";
 
 export default function Schedule({ semesters, dispatchSemesters }) {
     function ADD_SEMESTER(semester) {
@@ -38,13 +38,21 @@ export default function Schedule({ semesters, dispatchSemesters }) {
 
     // React.useEffect(() => {
     // }, [semesters]);
+    if (semesters.length === 0) {
+        return (
+            <div className="schedule">
+                <p style={{ position: "absolute", left: "40%", top: "46%" }}>No semesters added yet. Please add a semester.</p>
+                <SemesterAdder onAddSemester={ADD_SEMESTER} />
+            </div>
+        );
+    }
     return (
         <>
             <div className="schedule">
                 <SemestersList
                     semesters={semesters} changeSemester={UPDATE_SEMESTER} removeSemester={REMOVE_SEMESTER} />
-                <SemesterAdder onAddSemester={ADD_SEMESTER} />
             </div>
+            <SemesterAdder onAddSemester={ADD_SEMESTER} />
         </>
     );
 }
@@ -63,6 +71,7 @@ function SemestersList({ semesters, changeSemester, removeSemester }) {
 
 function Semester({ semester, changeSemester, removeSemester }) {
     let courses = Array.from({ length: Number(semester.courseCount) }, (_, i) => semester.courses[i] || "");
+    let [courseCount, setCourseCount] = React.useState(semester.courseCount);
 
     React.useEffect(() => {
         if (courses.length !== semester.courses.length) {
@@ -72,7 +81,6 @@ function Semester({ semester, changeSemester, removeSemester }) {
             };
             changeSemester(semester.index, updatedSemester);
         }
-        console.log("Semester updated:", semester);
     }, [semester.courseCount]);
 
     return (
@@ -80,49 +88,67 @@ function Semester({ semester, changeSemester, removeSemester }) {
             className="semester"
             id={"semester_" + semester.index}
             key={semester.id}>
-            <button
-                className="removeSemester"
-                onClick={removeSemester}
-            >x</button>
-            <input
-                className="semesterName"
-                defaultValue={semester.name}
-                onChange={e => {
-                    const updatedSemester = {
-                        ...semester,
-                        name: e.target.value
-                    }
-                    changeSemester(semester.index, updatedSemester);
-                }} />
-            <input
-                className="semesterCourseCount"
-                type="number"
-                min="0"
-                value={semester.courseCount}
-                onChange={e => {
-                    const updatedSemester = {
-                        ...semester,
-                        courseCount: Number(e.target.value)
-                    }
-                    changeSemester(semester.index, updatedSemester);
-                }} />
-            {courses.map((course, index) => (
-                <Course
-                    key={index}
-                    course={course}
-                    index={index}
-                    changeCourse={(newCourse, index) => {
-                        const updatedCourses = [...semester.courses];
-                        updatedCourses[index] = newCourse;
+            <div style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
+                <input
+                    className="semesterName"
+                    defaultValue={semester.name}
+                    placeholder={"Sem " + (semester.index + 1)}
+                    onChange={e => {
                         const updatedSemester = {
                             ...semester,
-                            courses: updatedCourses
-                        };
+                            name: e.target.value
+                        }
                         changeSemester(semester.index, updatedSemester);
+                    }} />
+                <button
+                    className="removeSemester"
+                    onClick={removeSemester}>
+                    <svg fill="#ffffff" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M697.4 759.2l61.8-61.8L573.8 512l185.4-185.4-61.8-61.8L512 450.2 326.6 264.8l-61.8 61.8L450.2 512 264.8 697.4l61.8 61.8L512 573.8z"></path>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <p style={{ margin: "0.2em 0em" }}> Max courses: &nbsp;
+                <input
+                    className="semesterCourseCount"
+                    type="number"
+                    min="0"
+                    value={courseCount}
+                    onChange={e => {
+                        setCourseCount(Number(e.target.value));
                     }}
-                />
-            ))}
-        </div>
+                    onKeyDown={e => {
+                        if (e.key === "Enter") {
+                            const updatedSemester = {
+                                ...semester,
+                                courseCount: courseCount
+                            }
+                            changeSemester(semester.index, updatedSemester);
+                        }
+                    }} />
+            </p>
+            {
+                courses.map((course, index) => (
+                    <Course
+                        key={index}
+                        course={course}
+                        index={index}
+                        changeCourse={(newCourse, index) => {
+                            const updatedCourses = [...semester.courses];
+                            updatedCourses[index] = newCourse;
+                            const updatedSemester = {
+                                ...semester,
+                                courses: updatedCourses
+                            };
+                            changeSemester(semester.index, updatedSemester);
+                        }}
+                    />
+                ))
+            }
+        </div >
     );
 }
 
@@ -131,7 +157,7 @@ function Course({ course, index, changeCourse }) {
         <div className="course">
             <input
                 type="text"
-                placeholder="Course Name"
+                placeholder={"Course " + (index + 1)}
                 value={course}
                 onChange={e => {
                     changeCourse(e.target.value, index);
@@ -158,19 +184,25 @@ function SemesterAdder({ onAddSemester }) {
 
     return (
         <form className="semester-adder" onSubmit={handleSubmit}>
+            <p>Name:</p >
             <input
                 type="text"
                 placeholder="Semester Name"
                 value={name}
                 onChange={e => setName(e.target.value)}
+                style={{ width: "8.5em" }}
             />
+            <p># Courses:</p>
             <input
                 type="number"
                 min="0"
                 placeholder="Course Count"
                 value={courseCount}
-                onChange={e => setCourseCount(e.target.value)}
+                onChange={e => {
+                    setCourseCount(e.target.value)
+                }}
                 required
+                style={{ width: "2em" }}
             />
             <button type="submit">Add Semester</button>
         </form>

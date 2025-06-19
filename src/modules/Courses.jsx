@@ -36,7 +36,6 @@ export default function Courses({ courses, dispatchCourses }) {
     });
 
     React.useEffect(() => {
-        console.log(courses);
     }, [courses]);
 
     return (

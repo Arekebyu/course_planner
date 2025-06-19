@@ -1,8 +1,10 @@
 import { createRoot } from "react-dom/client";
 import React from "react";
+
 import Schedule from "./modules/Schedule"
 import Courses from "./modules/Courses";
 import Solver from "./modules/Solver";
+import "./app.css"
 
 function App() {
     function scheduleReducer(state, action) {
@@ -41,7 +43,6 @@ function App() {
     const [course, dispatchCourses] = React.useReducer(courseReducer, []);
 
     React.useEffect(() => {
-        console.log(semesters)
     }, [semesters])
 
     return <>

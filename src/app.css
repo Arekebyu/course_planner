@@ -1,0 +1,178 @@
+:root {
+    --background: #0c0c1c;
+    --main: #ef9f9f;
+    --sub-alt: #1f1e33;
+    --sub: #646669;
+    --text: #d1d0c5;
+    --font: "Inconsolata"
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    caret-color: var(--main);
+    font-family: var(--font);
+    color: var(--text);
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+
+        opacity: 100;
+    }
+}
+
+body {
+    background-color: var(--background);
+}
+
+.schedule {
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+    min-height: 100vh;
+    width: fit-content;
+    padding-inline: 1em;
+    margin: 1em 2em;
+    border: 0px solid var(--sub-alt);
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.semester {
+    background-color: var(--sub-alt);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    margin: 0.7em;
+    margin-inline: 0.8em;
+    animation: fade-in 0.5s;
+    font-size: 1.2em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.semester input {
+    background-color: transparent;
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+    font-size: 1em;
+}
+
+.course {
+    display: flex;
+    flex-direction: column;
+    margin-inline: 0.3em;
+    margin-bottom: 0.2em;
+    border: 2px solid var(--sub-alt);
+    width: 7em;
+    padding: 0.1em;
+    padding-inline: 0;
+    background-color: var(--sub-alt);
+    border-radius: 0.5rem;
+}
+
+.course input {
+    width: 7em;
+    margin-top: 0.2em;
+    color: var(--sub);
+}
+
+.semesterName {
+    width: 6em;
+    margin-top: 0.2em;
+    color: var(--main);
+}
+
+.semesterCourseCount {
+    width: 1em;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.semester button {
+    background-color: var(--main);
+    justify-content: center;
+    align-items: center;
+    height: 1em;
+    width: 1em;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+    border-radius: 50%;
+}
+
+.semester-adder {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    background-color: var(--sub-alt);
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 0.3em;
+    font-size: 1.3em;
+    margin: 0.5em;
+}
+
+.semester-adder input {
+    background-color: var(--background);
+    padding: 0.3em;
+    margin-inline: 0.3em;
+    font-size: 1.2em;
+    border-radius: 0.3em;
+}
+
+.semester-adder button {
+    background-color: var(--background);
+    padding: 0.5em;
+    border: 0.1em solid transparent;
+    border-radius: 1em;
+    color: var(--text);
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+    font-size: 1em;
+    width: 7em;
+}
+
+@keyframes hover {
+    from {
+        border-color: white;
+        color: var(--text);
+    }
+
+    to {
+        color: var(--main);
+    }
+}
+
+.semester-adder button:hover {
+    color: var(--main);
+    background: radial-gradient(circle,
+            rgba(239, 159, 159, 0.1) 0%,
+            rgba(239, 159, 159, 0.1) 100%);
+    animation: hover 0.3s;
+    border-color: var(--main);
+}

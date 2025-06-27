@@ -47,6 +47,9 @@ function App() {
 
     return <>
         <Schedule semesters={semesters} dispatchSemesters={dispatchSemesters} />
+        <div style={{ textAlign: 'center', margin: '20px 0', backgroundColor: 'var(--sub-alt)', padding: '1em' }}>
+            <h1 style={{color: 'var(--text)'}}>Desired courses</h1>
+        </div>
         <Courses courses={course} dispatchCourses={dispatchCourses} />
         <Solver semesters={semesters} courses={course} dispatchSemesters={dispatchSemesters} dispatchCourses={dispatchCourses} />
     </>

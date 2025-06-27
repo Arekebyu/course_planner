@@ -80,8 +80,7 @@ export default function Solver({ semesters, courses, dispatchSemesters, dispatch
 
     return (
         <div className="solver">
-            <h2>Solver</h2>
-            <button onClick={solve}>Solve Schedule</button>
+            <button onClick={solve}>find schedule</button>
         </div>
     );
 }

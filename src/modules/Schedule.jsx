@@ -187,22 +187,22 @@ function SemesterAdder({ onAddSemester }) {
             <p>Name:</p >
             <input
                 type="text"
-                placeholder="Semester Name"
+                placeholder="Name"
                 value={name}
                 onChange={e => setName(e.target.value)}
-                style={{ width: "8.5em" }}
+                style={{ width: "4em" }}
             />
             <p># Courses:</p>
             <input
                 type="number"
                 min="0"
-                placeholder="Course Count"
+                placeholder="Courses"
                 value={courseCount}
                 onChange={e => {
                     setCourseCount(e.target.value)
                 }}
                 required
-                style={{ width: "2em" }}
+                style={{ width: "1em" }}
             />
             <button type="submit">Add Semester</button>
         </form>

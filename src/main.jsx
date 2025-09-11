@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client";
 import React from "react";
 
-import Schedule from "./modules/Schedule"
-import Courses from "./modules/Courses";
-import Solver from "./modules/Solver";
+import Schedule from "./modules/Schedule.jsx"
+import Courses from "./modules/Courses.jsx";
+import Solver from "./modules/Solver.jsx";
 import "./app.css"
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
     return <>
         <Schedule semesters={semesters} dispatchSemesters={dispatchSemesters} />
         <div style={{ textAlign: 'center', margin: '20px 0', backgroundColor: 'var(--sub-alt)', padding: '1em' }}>
-            <h1 style={{color: 'var(--text)'}}>Desired courses</h1>
+            <h1 style={{ color: 'var(--text)' }}>Desired courses</h1>
         </div>
         <Courses courses={course} dispatchCourses={dispatchCourses} />
         <Solver semesters={semesters} courses={course} dispatchSemesters={dispatchSemesters} dispatchCourses={dispatchCourses} />
